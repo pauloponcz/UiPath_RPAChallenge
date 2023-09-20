@@ -1,7 +1,15 @@
-### Documentation is included in the Documentation folder ###
+## 🚀 Updating My GitHub 🚀 ##
 
+Hello everyone,
+
+I'm excited to share with you that I'm giving my GitHub profile an update! Over the past period, I've been working on several exciting projects and learning many new things, and now I'm ready to share my progress with the GitHub community.
+
+### Description ###
+
+This code is a UiPath automation that utilizes the REFramework structure to read information from a spreadsheet and fill out a form. This approach provides a reliable and scalable automation with exception handling, failure reprocessing, and detailed logging, making the process more efficient and easy to maintain.
 
 ### REFrameWork Template ###
+
 **Robotic Enterprise Framework**
 
 * Built on top of *Transactional Business Process* template
