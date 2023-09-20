@@ -1,0 +1,277 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>536,918</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="546,853" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: Rpa Challenge" sap:VirtualizedContainerService.HintSize="484,474" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="True" OpenMode="Never" ScopeGuid="f7839209-be37-4a62-b30c-2bd6cd227ad3" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,257" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Parallel DisplayName="Preenchimento dos Campos" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="Parallel_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Phone Number'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="226,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;Phone Number&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" DesignTimeRectangle="408, 298, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT QJJKY'" FullSelectorArgument="&lt;webctrl id='QJJKY' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='QJJKY' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="f7c731f6-562f-4543-906c-474c0baa7a08" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAahF9jMmNlPuzwYhAQGIYFBZvcAOunTMvOXJUEAAAAASUVORK5CYII=" InformativeScreenshot="4fedb05597195be771ae8873e27fa0b4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvType="InputBox" DesignTimeRectangle="408, 279, 86, 16" ElementType="Text" FriendlyName="'Phone Number'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Phone Number' check:innerText='Phone Number' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFoAAAAUCAYAAAAN+ioeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVFhH7dAxDQAwDMCw8QdRqt03BstlSyGQsySMjhgdMTpidMToiNERoyNGR4yOGB0xOmJ0xOiI0RGjI0ZHjI4YHXmjZ0bfmr26jKFuv2+AhgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;Address&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" CvType="InputBox" DesignTimeRectangle="641, 388, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT woKnJ'" FullSelectorArgument="&lt;webctrl id='woKnJ' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='woKnJ' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="daea5465-d445-4ef7-9800-cefcdc64f20b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUHoBTYzZvbTLg8GIYFBZvcArhfTMi1DkSAAAAAASUVORK5CYII=" InformativeScreenshot="6a97c0becdb5daf47521748de09a580a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Address" CvType="Text" DesignTimeRectangle="641, 369, 47, 16" ElementType="Text" FriendlyName="'Address'" FullSelectorArgument="&lt;webctrl aaname='Address' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Address' tag='LABEL' type='' class='' check:innerText='Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAUCAYAAAAgCAWkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKWSURBVFhH7ZT/a5tAGMb3//8R0iNHhZgvhDoMKRnCpEKJxZEiOCYJC5WFhiUzIBgSnr53Xho1cR1bfwgjD4i+752v9/Geez/gP9IF5lx1gTlX/SNMgtAZwI9VWNU6hHPro274vXUSJns0oWk6nDdXsYDb1GCFKqzq2YWhWagbfm+dgMkwvtFgtAywT1OVO2j7a4YwCBB8nSHZVGG2SGYhAhoPZwm2RZhsjijI35mKu5xfqBdMMc9UUqpSS2Xr86dgVh46jSGin+q+U3lSGlrgVwZMx4PvWjB0A8b1HiZF2OfQmiackQ+3b0CnH8L3MBKMg+s6ev3cerIe78AeBXk9xjH4lhNNbZrbtuEFHgZNBm7nP7YuL3QEsxx1wIaReILXZpCPUlMMG2S9JxUKCXBNwUyGYLqDuAAvamklmA68lRwiiXoG3GcVCn23wZsumXeJ+xYjMJVf0dlzQtrNunyuCkwMRyeASR4lD7SYvlxKvhjaqbLxDjZbuCdsWbRZ8VlIxrRLtwMMXq8edDUnjWzaKQbjxoE3mSNTP6kuL1SGiR0qVviARQu8MjEWO78Wu2AhKLws4ZXNJLgVqLzSk1OxWQFG1jPhrxMkpSs9nINdhvRHCNfSoXU92helmnwJJv7MoZMHD4UX8KkZmI+ChmzXpcZwF79+bPnFBNvbTFiOzpMbq9Hdkt5lFZsVYGQ9DivYmwSY3xnQPo6pBc1x3+3A3VtanWNqETX5XAeYXXTsYZJs021Fn0awyVYaHVTeoK22PRnnDUBZ4EoD4xyMatkjimthSKIenQExX9RjLRtRuh/K7cSuqRZ9r/cw/21e6KgB/JE2WcmrVW2zUo99W5sU6UY9V1RX61T+72DOVBeYc9UF5jwFvAAyIUc6APcIhQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Role in Company'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,218" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="DebuggerApi" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;Role in Company&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" CvType="InputBox" DesignTimeRectangle="408, 474, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MCbTC'" FullSelectorArgument="&lt;webctrl id='MCbTC' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='MCbTC' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="8084c93c-a60c-4c80-9d24-fe8760a41ea0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUHoBTYzZvbTLg8GIYFBZvcArhfTMi1DkSAAAAAASUVORK5CYII=" InformativeScreenshot="6341f094fd91fca3ffd93a4f1a1382ea.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Role in Company" CvType="Text" DesignTimeRectangle="408, 456, 99, 16" ElementType="Text" FriendlyName="'Role in Company'" FullSelectorArgument="&lt;webctrl aaname='Role in Company' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Role in Company' tag='LABEL' type='' class='' check:innerText='Role in Company' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGcAAAAUCAYAAACQ9yOWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARrSURBVGhD7VePa+JIFL7//48Ihg4NGGvPbZYUxRK40MCuFq3LHC4NDScnpPXWXYVAivLdm2SiM/HHtrLLyZ4fBDOZmTfzvu+9N+NvOOFocRLniHES54hxEueIcRLniPEDxJlh6DfRG8vmq5AivLHQ6Exk+wCkCWbzGZIX2f4FsRbnOYBtGDDPGRg95pkF5y6WnfswQVA14A5l85WI7z0EYSJbb8A8hFczaX9ynxUD1vUA06Xs/4VQEsfFiuOEwz2zETzLNiF9isA5B/88wmwVsZviLL6NMBTjeIQ4lR9LmI04wifRmSJ+4Bh9W2DyKOZwRNn3LVhGaDMG534qPxCWM/BrBuNqgLXUC7I/zPf6GCNdCbdlrX8Wedd8nO9Z860Yr/iu2RNYrzUczbBIY4ScbIiu4v1lgkjMVfhIn0JwGq/hC62hfNstjiS9+SDeEwxbFKVVF0G/h+DahsFobMaGLk4ydMFYHV6Hoxe4sE1GNjbJHl4bsANR1vL57NxGw++BdzzUmYFGXxFAYnZXh/F+QJSVsEyRFCVuGePDhQl26aHLu/AuSbhagDgjtLxWE3aFwQ181GvSN9ci39qIlPH2RR2WsNcP0NTsES8iMKoO/E7Oi1WzwQoeM04pw2sN+H2OrlcHqzTQ+0p9Yx/WWRuhEjiD9wacT2vvSuI46JGTopbHfYdIbiIUYx/bMC0fYyVi4lsSKCNKFYciu5Rt+MsDqwY0SkdZnHpHESOk9XbN+bgpmopMQC2LEnDXhOWLQ3HLWhRMRsXBYMVJgt478udP8Z6PN12u2RtckY07ivAtvEw7tL4mTh1dIYZE2Dal31N0LxQx5l3UNbE2xKFDuuVmkWteBojmedcksGHeRHmjgBh/ThuTDmTirGw00Vw9DVhaRuYoi6OdWZmdzTlh6/viCLsZcSqEACSYHkgSYq1SIOzdGyG9d2BcD3fzoomj+yHmiLkC6Seyc9nNSqAQNQ+gNbaWtfShSVlTpLaMRooeDX/7MiMUB4T6Svatn4Qqs45DxMmc0bJCIonpvIgwobIW3VCW3OoXmYLMnWt9RxznXi+khSg7eXmlOFiGVGlEZo3hW3qGCew4c/LUtQsnvxLpFSpXY0kxHXC9qyI9VYcpVakmu3wduevyp+MQccR5EtRo3h9ETJH+L2N031Fdb4X5GlRqGJ2HXGY95hG8qkn2Re9h4hhVD6MiIuZ0UaJLSfuR3su8LKcZL3pZ2yMOYexbsH6n6rKFo90XgucPdFiSml/yZhJ6dLhTuaONmRUSxgslQSWHE3nVpXHsjH5rHrbdmA8SR4ACg7cocmkP7JyIqNCVP1DEIsR3Diy6YptFf2csM/cwcdzbLhpWsR5DQ/mLkfEi1hK80Hnr0YVmtfdXiJMJbJhoh7KtYC3OK7FINkvUVrwk//kfxDQpx+JboYu5SHfb29e3F+LWJi4VsqnizeL8v7Al034wxO1Nuz0qOImzFz9ZnHQARxwdxflYwkmcI8ZJnCPGSZyjBfAvq+3u4Cqf63IAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'First Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,218" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="DebuggerApi" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;First Name&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" CvType="InputBox" DesignTimeRectangle="408, 561, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT uF7nO'" FullSelectorArgument="&lt;webctrl name='uF7nO' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl name='uF7nO' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="1b6df688-992d-4247-a13a-4648e04e415c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAahF9jMmNlPuzwYhAQGIYFBZvcAOunTMvOXJUEAAAAASUVORK5CYII=" InformativeScreenshot="2c309dc33805448f6edfe860b11f89c5.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="First Name" CvType="Text" DesignTimeRectangle="408, 542, 62, 16" ElementType="Text" FriendlyName="'First Name'" FullSelectorArgument="&lt;webctrl aaname='First Name' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='First Name' tag='LABEL' type='' class='' check:innerText='First Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAUCAYAAAA5g+sCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALkSURBVFhH7ZUBa9pAFMf3/T9EMPQw0Ei2OMuVFIcw2YFVl07ISFEqCxO0jrYRAinKf+9yF2PSjXZtYVDyg2C8y929++W9yzvUZNQiNLUITS1CU4vQPCoinXZhfRhhrf+/VQoR1wK2YcBsMjB9ueMbYDVBT8yQ6Meexhri2Ia41n9LyD4D7DQszbkWNgxq+19URHA8COUuQjBdIqXbOAowWyWIFyH9yhYiXWIeBAiCOZa6KY5G4CSSD6ldjy1QIowG9YeFigciKvOqteVMKZbTANHdFusr2R9g/murxmwWCOWYywjxvWrK2dI+sr6DOA95XETIYRyLrDTCU8oYxmC2OuhfxsCtD9e0wIUPv++CmS78W2DxlcM+MmFzD14/BD15gBLBhyM4TVpPuyiJWFEsJMo5E/CHPTiWA5vG2EJGoTOqacPt+wiGXvYsF304LQ5x4UNwCwbrYr5T0yW0B8Yc9OjF+IJiMxm8adlGRYQF94yCl1e+gaqI7ky2KqYejNYAVEAZ0diDv5B3j5cGpz3fjJ19iRQiYozeG+h8Oyic3Qzdo7IIZ5ivSsgYGx1M9ntL4Ldpje/yfk5jK7H86IHpPeVURJC1LH3oylO6IkIFo9ktMWpThlguPKHSVfE0EaSCNq3eTiEiBKc4RhvZX1CsfTheI2OvbGz/fPUFZ5cLq5L9/1waJRGabbJGdEEpTGXTvZItTxVBXA9gNz0MPuci5Bu0IFaqW5Fi8vGZIjZUgkYH/iZGXLoS5K9N8iIR29Cj1J7sT/9Z14QzlgUlg2Xo/1TtZR5uZH1OEhp0gOozYv6JvlqnAeK8ximV5RftWSJ01vGgOKmWX2i9k0npEH9ZRsjSOLFg0uHDmAnzuIeZtrI8d2A2TLD2aH+GKP6wEWobtAoReckZcjzNa9Ecgj9XBJHM0GtRfJSxjA5xs1XEmVOIeAm7FGnlc/UqvPa89wmSv8z3OiLeALUITS1CU4vQ1CIygN/c4tDGBDYjvgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,218" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;Email&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" CvType="InputBox" DesignTimeRectangle="641, 474, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT WeASI'" FullSelectorArgument="&lt;webctrl id='WeASI' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='WeASI' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="5f980130-e945-4aaf-b265-f388538ea3cd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUHoBTYzZvbTLg8GIYFBZvcArhfTMi1DkSAAAAAASUVORK5CYII=" InformativeScreenshot="f6c935bbaf67991e905e5dac3d137b60.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Email" CvType="Text" DesignTimeRectangle="641, 456, 31, 16" ElementType="Text" FriendlyName="'Email'" FullSelectorArgument="&lt;webctrl aaname='Email' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Email' tag='LABEL' type='' class='' check:innerText='Email' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACMAAAAUCAYAAAAHpoRMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF4SURBVEhL7ZNva8IwEIf3/T9EWbFYWKT7g1BRCoUV+2YBZRDIsCCUFXQFtUJBcfx2TSurzG6rc2wv+kAgd5cmT3PkAv+IRqaKRqaKP5CJwW9MOJMNsJbwBiNEReVARvY0aLoBo12MO45FUTsfKQLfxeOcpi8+mGZD5oWPMsyPi+idJBQI5imSSEIIARkleWEbY0qxEFPM6EfL7FYhZFZ7CpFsN5hNBMJVVinNT5HJ8rphgg04xNjDbZvW3fvodyy4DwLctWBcWuDLfH0qbYoZuh7HyLfBTAZG39jq1Bj+VTH/Skbv2OgP+mqMimaqvBPkQYbaxIS3bzYRugbM4YxmUzgtqj3necWSw9JOkDF69Pfq6vfXeuzGJOzSJhmxz6D1KJMd0HJIqUxJoI5MVZu+LbPObsGGeC0KigjeKW36sQy9P35N64cRdnkJi3EX+iltOva068kQaQCXDlR7tXQwl6u4lszZoSe9OWjX5/yuTE0amSoameMAbwtOflKwslRXAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Company Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="200,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;Company Name&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" DesignTimeRectangle="641, 302, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT VpjsN'" FullSelectorArgument="&lt;webctrl id='VpjsN' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='VpjsN' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="6aa4b495-b058-4593-97a8-c4108b672d95" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAahF9jMmNlPuzwYhAQGIYFBZvcAOunTMvOXJUEAAAAASUVORK5CYII=" InformativeScreenshot="b63629613ac5aa92812fe72c2f39e111.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Company Name" CvType="Text" DesignTimeRectangle="641, 283, 96, 16" ElementType="Text" FriendlyName="'Company Name'" FullSelectorArgument="&lt;webctrl aaname='Company Name' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Company Name' tag='LABEL' type='' class='' check:innerText='Company Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAUCAYAAAB7wJiVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARaSURBVGhD7VcNa+NGEO3//xHCwkvERa6C73wo2DgIKiJIo5CPQ8UhIqamok7c3kUuAgWb15nVyl5Z9l3iO67u4QeG1a40OzNv5u36J+yxU9gTsmPYE7Jj2BOyY9gTsmPYSEj+T4p0mmGmnvf4PqgRkt55sE0T5oGAODBhNCy41x/V6o+HwbEBoxVgPFcTjIEL4zDARD1+T1QJue9DiA5u/lbPjGkEVxjoXGdqgvCcYnQbIYoiDB9yNUl4GiG6GyObJhjQWnSbIJWBzjC53/x+vrA3wOhppSfzMYZsKxpiTJ+mowixslGMM6TJQNoejFLV0WQviuX7S2QY367OKUIaBuxgrGYIq4TMc4x1/0u/aanmQ5IW3zxPKn5XsIipHq9GSIrwiBL/YfVrQk4bPin5ejiDYwo4Xojo3INzoAXDgTQFrFYXYXQJ/62g6vMR9Ozl+0Suc6E6jt8/oDXLhhtcIvQ7sBsC7kCR/xDIZ6cX4JK/tRzYh7xfkSpOpiks2D2yfRXAfWNAeENayXHznvY51zo78WFZPhL1WIJt2Kch+uRH8FBOaoTMxwhaZPeoi+AqhHdkwWnZi/WqDz7anI9fAnRbDrzzCKHnQDQchJ/YGEHGRKpD8Rb5M8nPZS9qhAzgGjbO9O6oQZGmd0tGHdS04HOkkpA+4kX7TxBQAi25qPC7B/GGJILH/D7tuUgE4w9KHNkYrttrHqPfXCGkH8uxxKcQjuFSJIS4D1MjYHjCgdelVxLC9lgdSunSCEkvHBjvbqi/loj7JOU6IboPj5RwQ+VDYeRRkZ5yxByTSQWnFX12iXaDfFY50wiJ0W18iRAmjdieqkcFdqpzTZvolaXAa67MkIJ0WCVtzftUyvC5Wh8376UTUo4LFEUVPPKY7Fgm+vc0ZCJZitc0v25jeCJg/0pjzS9edy6UDJVYWa/7oOJTmATUUcc8w2smbLeLbq/8ubCbpc8VQoo2r1SkQvYn6eP9hCRrSBVqVSuav3unkr4NIQcrMjInp7nFp5v3ehkhwMdzR1Zv9qEDoVexhoqNnIqSiuEsWMbBnVVU9xL5dWdLQoqY/CHfYPVfhrzeIQSpb7b8oMQsCdEWAt27ory4isRxpA5rasIh3cqa5AAvb0MIVUznqpSSGZJTcv4oBM+s7pWR3NnGywlBfoNOo4026b4uITpWbeR3XdJ8OujLOORFx0VUdmo2gkcyvB0hqgvJmfIoz35zK9JaJYQw+yuiA4k0kg5uQXptWB0EGkF8yIXvLbqZmIv1MFHmtyHk0KODz4ZJlwFhcqAe4rJJeS++GPBegir1bYjAfQUhBKn3PxcEr0PdRo64R3tqcYwv2pIk/itgWm2Ep8s4X0tImT8ZL8Vkcv40FagR8mLQVTBbo8mvgk4g2cuf5Wwdn1v7LJQMr7s5boE8r15Rvwob8rc9Id8Cazrqm4JvXZVb3+7jhyYk8UkaTvh/yf8H/y0he9SwJ2THsCdkpwD8CytGBRJp027+AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Last Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="DebuggerApi" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Text="[in_TransactionItem.SpecificContent(&quot;Last Name &quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" CvType="InputBox" DesignTimeRectangle="408, 388, 212, 45" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT KKfdX'" FullSelectorArgument="&lt;webctrl id='KKfdX' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='KKfdX' tag='INPUT' type='' class='ng-untouched ng-pristine ng-invalid' aaname='' /&gt;" Guid="c3d55ad3-c494-403d-92d4-f3bfdc50420a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAxCAYAAAC4a2enAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVHhe7dUxDQAxEASx5w/iqF6qBMFPZ0sLYbTfAhmBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUFIYBASGIQEBiGBQUhgEBIYhAQGIYFBSGAQEhiEBAYhgUHoBTYzZvbTLg8GIYFBZvcArhfTMi1DkSAAAAAASUVORK5CYII=" InformativeScreenshot="309af57dec647207901ff8b90822f642.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Last Name" CvType="Text" DesignTimeRectangle="408, 369, 61, 16" ElementType="Text" FriendlyName="'Last Name'" FullSelectorArgument="&lt;webctrl aaname='Last Name' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Last Name' tag='LABEL' type='' class='' check:innerText='Last Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAUCAYAAADStFABAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALwSURBVFhH7ZX9a9pAGMf3//8Rh4eHYZ7N5maJKI5Aw8K6ZrN0BDImClIhVLBNR8CifPfc5fKi7axsZT+MfCCQ3JM8L997nssr1KAWgahFIGoRiFoEohaBKEW48SGZg8g8/h0RnN/50nEEnCg1C4ol/DajNfP4jzlChA2SeYQwDBHNE2zWMSbhHEluvZsjIlv4ndYe1Moa8Q8XNrPhqnX6Zgcdh4G1KFahw2MRdv0qnyHmd2TI4z8sMVP2cIaljgski0qe2ZKhrCGcxlhvzbLhGRFSRH0B1u7BuxjD70tYHQmRvzd1IVpU7EWIYCjBWy5m2wSR14XFLHSHAwy+LrSnAhMn+GJD9COKoNgVIY0ciIZEzwsw9h1IS0K2jN10kuh04V1mcZlw4J/ZkH0f40sfzmsG8WGWOTM1iBMXQZjVwFsDTNbGTBwWYToCtzwsKsqtLmww897qMzkcTjIDVojOPET36v65cVC2FYI3+VhURZhh1LTgXat7w21AnVUVwUZwm5kUUZ866/SKetCQjtGlGKHKW9XQ9ilCydwVkH65clCEpU9FFooaqu+lE7htDt5RnTJDXGRxjAiEKk7vSkUEZW+OSIoqe/Yn8qwWlcWX8G8yG7O6GKiuzK+3Fhh1Yc5BERJqWeaE5slw7ZXjYFj/jBFR21qNfIeOFIFYUjeJ4Tm8vMh7tetmFwsW8HbG4XgRdA2nYyT3ye6VlqfG4XFQO0Wz6S/MB9sVxu95MQ7xJxv2x3zmqb1POEZTda+S6OGqMncFj+Iscd6hdm6YIvWYMEjym6e5uuyB74zD8SLoGujMCPWYEttYd1XvW5ncngiMDg06RNT1LqB0VMe7kJQgFwK8KekQpOc8CTUOHRqHJr3f5PqbWO8gHUZDarkGrbn5mWF4Suybcx0jE4HQY0bC8MyvdAP9/EciELoGlR/VxbnyNzEHckYpwjNs1k9tq4F+Yfu/nRfhhf1u0nTv15lxtAj/M7UIRC0CUYtA1CIA+AW+Z4NTRbMcSgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+            </Parallel>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f7839209-be37-4a62-b30c-2bd6cd227ad3" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.rpachallenge.com/" CvElementArea="395, 517, 115, 40" CvTextArea="424, 530, 57, 13" CvTextArgument="SUBMIT" CvType="Button" DesignTimeRectangle="397, 519, 112, 36" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Submit'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='btn uiColorButton' aaname='Submit' check:text='Submit' /&gt;" Guid="8db2827b-0bde-4b69-9dd0-abe7a47466fa" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHQAAAAoCAYAAAAv1t6rAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPNSURBVHhe7ZxNS1tBFIbzE0rbP9Cf0L/gsqvSpcVVV6FLuxNxYxYtCoJuiiJutBQVN4YWUQSh3VnwE0UICFKNCkGIXs3X6ftOZm4m6VVqWuzN5Qw8GE/O3AnnyXxc4Zqq1WpSrValUqlIuVw2lEolpQNwvuiODuky5WQy4ebmRq6vryUIAsPV1ZUSQ5wfuqIzunNSU05m6etHqfY8ldrLlNJB0BndOakpvqD1as+TyA5K/KE7OqTLFKftxcVFZKLSOdAhXaZo9vz8PDJJ6RzokC5Tl5eXks/nI5OUzoEO6dIIPTk5iUxSOgc6NEKLxaIcHx9HJimdAx3SpQpNCCo0YajQhKFCE4YKTRgxE/pMah+6pTYC3t3y3m9xkEE887zxe/+r+jUcUX3aAmP41+O4/jghGD/t93s44iN0KitSknqr2J8HY15Or0gRsWWvj0WOED+aaMQ2C6Z7U6sgtvjC6zdRj+f8MVpYP0YC+k26mO1jP4MZN7L5fR6WmAjtEwlQBxbXfLMxG1d367VZ67I59xRaXGn8nu4SMZIhaMTGnBzJiQy4mI/9THcIbXD7Z3to4iF0fAXVQPVm/Dhm09K0yNQ/EEoy80jy+zuhaJu9zblk2X6hVGg7DNWX2aPpO/aevxS6ipnYNButnNwPjA2axn1jPJr3VGibLLKwKEoFMzX/HfsdZk1Tke8plC3AtRwVLLcLEXvosr1uuLSDGYxfwQz9zJVDhbYP9rraHIq2i5lEuSUUNePev6fQAH1XsWQbcOAqQGoBszb8knhy1jBe8N3Gsd/+RHy3T2qTKvTfkR5EkVGk3JCN2aJ982aS5Y+W3DSWdV4vnImenPRY/Qu0iMPYKOTz8DSKuAptk3EUMUDhFvz4s/pMCUV1m9rKgRPssPvd/mAjFiXUFT08ALXIYZ88Dk77sO7GVKHtYgtygb1rGLOEN/CLeM3m721LPHmiwKtYDnlz3w+Z+7RpZ5TLaxWaeQuRvKeErPAk3SJnAEuzaV6OCv0LhrHsnXNNtI2Ho3WIa8qz96fuDw9sAfa/psMOoNDWVoTQL91eXqscrAg8CBeyjRwVqvxvVGjCUKEJQ4UmDBWaMFRowlChCUOFJgwVmjBCofooRDIIH4VQockgFMpH0E5PT6X8+nFkohJ/6I4OzeOEfFafzxbmP72XUvejyA5KfKEzuqNDujRPcBcKBTk8PJSNjQ3JZrMyPz8vc3NzMjs7q8QQuqEjuqIzuqND8wQ3/y0K196zszPzxt7enuzs7Mj29rZha2tLiRHOCx3RFZ3RHR2Wy2X5BVf0WtCniaX1AAAAAElFTkSuQmCC" InformativeScreenshot="b82d71c31b4d8b37ebc5ab95d106ac71.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="62, -712, 1206, 623" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAScwAAEnMBjCK5BwAAAtRJREFUWEfllj9IalEcx83NHBShINucRAijLQiXttAgSHBwEIeGxFqqqaVNJyFIBQeJhghCRNFBBF20moIGBy1CMAgU+kNDKnLeO9ffPfce77npfdfHG94HfuD5/n7ne75e9V416B+jKsDd3R3SaDRc1Wo1UJWhKoBOpyMBFhcXQVWGqgDLy8skgMPhAFUZqgI8Pz9zh29vb4OiHFUBQqEQF0ANqnZbrVa0trYGqz9DcYBOp4MKhQK6vr7m3r3L5UKXl5eoVCqhr68vmJqciQLc3NygjY0N8oUbVx6PB9Xrddj9Mz8GaLVayGQyMQ/BpdVqmTpf+CP6/v4GNzayAWKxmMQwEAigarUKE1KKxSLyer2SfViXgxng9PSUMohEItCZnIODA8pDLoQkQKPRoDb2ej3oKKfZbI71kgQQ315HeXx8RKlUClZSkskkent7g9WQl5cX4reysgKqAHVKuVwmw+fn56AK8L1MJgOKwMnJCemPcnh4SHrtdhvUIdT05uamrAm+fHwvHo+DKhAMBmX3Yvje0dERKEOo6ZmZGW5ofX0dFIF+v09MEokEqAL7+/ukz8JsNnM9m80GyhBqmjcYTYnpdrukH41GQRXY3d0lfRZyV5esXl9fycDZ2RmoNHz//v4eFIGLiwuuZzQaQaHZ29sj+8WQ1e3tLRkIh8OgSvn8/IRXUvCbkMPn8xH/9/d3UEUBcrkcGVhYWAB1evDeuJ6enkAVBcjn89SQ0+mEjnqWlpYob2aAh4cHaogvv9/Phfv4+IDJ8eDfOr5hud1upudgMIBJUQAMa5hVer0ezc/Pc39Ecc3NzVF30HElhlptbW0xN0yzjo+P4bQhdJzfsDZNq/CVG0USAIMvKctATdntdnCnYQbApNNpZLFYmGZKCj8BK5UKuEqRDSDm6uoK7ezscGazs7PMg3AZDAa0urrKPRey2Szs/pmJAvxN/vcACP0CD7ydk7gYAkEAAAAASUVORK5CYII=" InformativeScreenshot="1a216650c7dc85db0bc2b616607e4a23.jpg" Selector="&lt;html app='chrome.exe' url='https://www.rpachallenge.com/' /&gt;" Title="Rpa Challenge" Url="https://www.rpachallenge.com/" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
